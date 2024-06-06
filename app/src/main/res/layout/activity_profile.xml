@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
+
     tools:context=".ProfileActivity">
 
     <ImageView
@@ -14,7 +15,6 @@
         android:layout_marginTop="4dp"
         android:src="@drawable/profile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,11 +22,13 @@
         android:id="@+id/textInputLayout0"
         android:layout_width="371dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#EAF6F6"
         android:hint="Enter your Email..."
         app:endIconMode="clear_text"
-        app:layout_constraint_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
         tools:layout_editor_absoluteY="144dp">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -39,6 +41,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         android:layout_width="0dp"
+        android:background="#EAF6F6"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="Enter your Name..."
@@ -58,6 +61,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:background="#EAF6F6"
         android:hint="Enter your Location..."
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
@@ -75,10 +79,12 @@
         android:id="@+id/updateBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="60dp"
         android:backgroundTint="#00FFFFFF"
         android:text="Update"
         android:textColor="#000000"
+        android:textSize="21dp"
+        android:textStyle="bold|italic"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
         app:layout_constraintHorizontal_bias="0.0"
@@ -91,13 +97,13 @@
         android:id="@+id/homeBtn"
         android:layout_width="150dp"
         android:layout_height="70dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="72dp"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="fitCenter"
         android:src="@drawable/home"
         android:textColor="#000000"
         app:cornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/updateBtn"
         app:strokeColor="#000000"
@@ -107,16 +113,15 @@
         android:id="@+id/logoutBtn"
         android:layout_width="150dp"
         android:layout_height="70dp"
+        android:layout_marginTop="72dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="fitCenter"
         android:src="@drawable/logout"
         android:textColor="#000000"
         app:cornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/homeBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/homeBtn"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/updateBtn"
         app:strokeColor="#000000"
         app:strokeWidth="1dp" />
 
