@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "6247023924",
+    "project_id": "job3final",
+    "storage_bucket": "job3final.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6247023924:android:f067e9524e28fd2636d161",
+        "android_client_info": {
+          "package_name": "com.alamin.job3final"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDflwq-bMftqDp-XBC7Buq-auRcSp8AzPM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
