@@ -12,38 +12,63 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.alamin.job3final.databinding.ActivityMapsBinding
+import com.google.android.gms.maps.model.LatLngBounds
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
-    private lateinit var googleMap: GoogleMap
+    private lateinit var mMap: GoogleMap
+    private lateinit var binding: ActivityMapsBinding
     private lateinit var firestoreViewModel: FirestoreViewModel
-    private lateinit var zoominBtn:ImageView
-    private lateinit var zoomout:ImageView
+    private val boundsBuilder = LatLngBounds.Builder()
+    private var hasValidLocations = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_maps)
 
-        firestoreViewModel = ViewModelProvider(this).get(FirestoreViewModel::class.java)
+        binding = ActivityMapsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        firestoreViewModel = ViewModelProvider(this).get(FirestoreViewModel::class.java)
+
+        binding.zoomIn.setOnClickListener {
+            mMap.animateCamera(CameraUpdateFactory.zoomIn())
+        }
+        binding.zoomOut.setOnClickListener {
+            mMap.animateCamera(CameraUpdateFactory.zoomOut())
+        }
+        binding.autoFocus.setOnClickListener {
+            if (hasValidLocations) {
+                val bounds = boundsBuilder.build()
+                val padding = 500
+                val cameraUpdate = CameraUpdateFactory.newLatLngBounds(bounds, padding)
+                mMap.animateCamera(cameraUpdate)
+            }
+        }
+
     }
 
-    override fun onMapReady(map: GoogleMap) {
-        googleMap = map
-
-        // Fetch user locations from Firestore and add markers
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
         firestoreViewModel.getAllUsers { userList ->
             for (user in userList) {
                 val userLocation = user.location
                 if (userLocation.isNotEmpty()) {
                     val latLng = parseLocation(userLocation)
                     val markerOptions = MarkerOptions().position(latLng).title(user.displayName)
-                    googleMap.addMarker(markerOptions)
-                    zoominBtn = findViewById(R.id.zoomin)
-                    zoomout = findViewById(R.id.zoomout)
+                    mMap.addMarker(markerOptions)
+                    boundsBuilder.include(latLng)
+                    hasValidLocations = true
                 }
+            }
+
+            if (hasValidLocations) {
+                val bounds = boundsBuilder.build()
+                val padding =500
+                val cameraUpdate = CameraUpdateFactory.newLatLngBounds(bounds, padding)
+                mMap.animateCamera(cameraUpdate)
             }
         }
     }
