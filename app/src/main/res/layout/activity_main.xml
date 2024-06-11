@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
-    android:padding="10dp"
+    android:padding="20dp"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp"
+        android:padding="20dp"
         >
 
         <androidx.recyclerview.widget.RecyclerView
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/location"
             app:tint="@null"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="#253C25"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.954"
@@ -47,6 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="#7CB5F1"
         app:menu="@menu/menu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

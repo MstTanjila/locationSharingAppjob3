@@ -4,22 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp"
+    android:padding="30dp"
     app:cardUseCompatPadding="true"
-    app:cardBackgroundColor="#94DBFB">
+    app:cardBackgroundColor="#E6EEF3">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="5dp">
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/displayNameTxt"
             android:layout_width="448dp"
             android:layout_height="53dp"
             android:layout_marginTop="8dp"
-            android:background="#EFEEFB"
-            android:padding="5dp"
+            android:padding="10dp"
             android:text="Display Name"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,8 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:background="#EEF7F8"
-            android:padding="5dp"
+            android:padding="10dp"
             android:text="Email"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@+id/displayNameTxt"
@@ -44,8 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:background="#E2F2F3"
-            android:padding="5dp"
+            android:padding="10dp"
             android:text="Location"
             android:textSize="23sp"
             app:layout_constraintEnd_toEndOf="@+id/emailTxt"
